@@ -21,15 +21,22 @@ public class Page_Layout extends JFrame{
     Font f1 = new Font("Helvetica Neue",Font.BOLD,20);
     Font f2 = new Font("Helvetica Neue",Font.PLAIN,20);
 
-    int qnum;
-    String ques;
-    String ans1;
-    String ans2;
-    String ans3;
-    String ans4;
-    String ansc;
+    final int qnum;
+    final String ques;
+    final String ans1;
+    final String ans2;
+    final String ans3;
+    final String ans4;
+    final String ansc;
 
-    Page_Layout() {
+    public Page_Layout(int qnum, String ques, String ans1, String ans2, String ans3, String ans4, String ansc) {
+        this.qnum = qnum;
+        this.ques = ques;
+        this.ans1 = ans1;
+        this.ans2 = ans2;
+        this.ans3 = ans3;
+        this.ans4 = ans4;
+        this.ansc = ansc;
         op1.setFocusable(false);
         op2.setFocusable(false);
         op3.setFocusable(false);
@@ -64,4 +71,6 @@ public class Page_Layout extends JFrame{
         this.add(options);
         this.setVisible(true);
     }
+
+    
 }
