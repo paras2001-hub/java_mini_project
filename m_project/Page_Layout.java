@@ -37,6 +37,7 @@ public class Page_Layout extends JFrame{
         this.ans3 = ans3;
         this.ans4 = ans4;
         this.ansc = ansc;
+
         op1.setFocusable(false);
         op2.setFocusable(false);
         op3.setFocusable(false);
@@ -55,6 +56,7 @@ public class Page_Layout extends JFrame{
 
         num.setText("Question No. "+this.qnum+" :");
         num.setFont(f1);
+        num.setBackground(Color.WHITE);
 
         q.setText(ques);
         q.setFont(f2);

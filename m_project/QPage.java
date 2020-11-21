@@ -3,14 +3,8 @@
 class Qpage {
     public static void main(String args[]){
 
-        Page_Layout p1 = new Page_Layout();
-        p1.qnum = 1;
-        p1.ques = "1/2 + 5/7 =";
-        p1.ans1 = "14/17";
-        p1.ans2 = "15/17";
-        p1.ans3 = "13/17";
-        p1.ans4 = "12/17";
-        p1.ansc = "none";
+        Page_Layout p1 = new Page_Layout(1,"1/2 + 5/7 =","14/17","15/17","13/17","12/17","none");
+
 
 
         // JFrame pg = new JFrame();
