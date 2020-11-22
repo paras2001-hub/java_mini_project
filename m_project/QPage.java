@@ -1,5 +1,6 @@
 
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import java.awt.Font;
 import java.awt.FlowLayout;
 import java.awt.Color;
@@ -65,12 +66,12 @@ class Qpage {
             q.setText(q_.getQuestion());
             question.add(q);
             questionNo.add(num);
-            ArrayList<String> oplst = q_.getChoices();
-
-            op1.setText(oplst[0]);
-            op2.setText(oplst[1]);
-            op3.setText(oplst[2]);
-            op4.setText(oplst[3]);
+            ArrayList<String> oplst = q_.getChoices() ;
+            // oplst = q_.getChoices();
+            op1.setText(oplst.get(0));
+            op2.setText(oplst.get(1));
+            op3.setText(oplst.get(2));
+            op4.setText(oplst.get(3));
 
             options.add(op1);
             options.add(op2);
@@ -89,7 +90,7 @@ class Qpage {
             pg.add(question);
             pg.add(options);
             pg.add(timePanel);
-            while(t!= 10000){
+            while(t!= 100000000){
                 t++;
             }
         }

@@ -3,19 +3,19 @@ import java.util.Collections;
 
 public class Questions {
     private String question;
-    private ArrayList<String> choices;
+    private ArrayList<String> choices = new ArrayList<String>();
     private String correctAnswer;
     private String operator;
     private int a, b, c, d;
 
     public String getQuestion() {
 
-        int max = 20, min = 1;
+        int max = 10, min = 1;
         this.a = (int) (Math.random() * (max - min + 1) + min);
         this.b = (int) (Math.random() * (max - min + 1) + min);
         this.c = (int) (Math.random() * (max - min + 1) + min);
         this.d = (int) (Math.random() * (max - min + 1) + min);
-        max = 5;
+        max = 4;
         min = 1;
         int num, deno;
         int randOperator = (int) (Math.random() * (max - min + 1) + min);
@@ -49,18 +49,18 @@ public class Questions {
                 this.operator = "/";
                 break;
         }
-        question = a + '/' + b + this.operator + c + '/' + d;
+        question = a + "/" + b + " " +  this.operator + " " + c + "/" + d;
         return question;
     }
 
     public ArrayList<String> getChoices() {
-
+        
         choices.add(0, ((a * b + 1) + "/" + (b * c)));
         choices.add(1, ((a * c + 3) + "/" + (b * c + 2)));
         choices.add(2, ((a * d + 2) + "/" + (b * c + 3)));
         choices.add(3, correctAnswer);
         Collections.shuffle(choices);
-        return choices;
+        return this.choices;
 
     }
 
