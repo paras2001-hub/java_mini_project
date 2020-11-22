@@ -1,7 +1,16 @@
-
+import java.util.concurrent.TimeUnit;
+import java.awt.GridLayout;
+import java.awt.Font;
+import java.awt.FlowLayout;
+import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JButton;
 
 class Qpage {
     public static void main(String args[]){
+        TimeUnit time = new TimeUnit.SECONDS();
 
         JFrame pg = new JFrame();
         pg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,14 +52,13 @@ class Qpage {
         JButton op4 = new JButton();
         op4.setFocusable(false);
         
-        JLabel timerem = new JLabel("TIME REMAINING : NULL");
+        JLabel timerem = new JLabel();
         timerem.setFont(new Font("Helvetica Neue",Font.BOLD,17));
         timerem.setForeground(Color.WHITE);
         JPanel timePanel = new JPanel();
-        timePanel.add(timerem);
         timePanel.setBackground(Color.DARK_GRAY);
 
-        for(int i = 0, i<10, i++){
+        for(int i = 0 ; i<1 ; i++){
             num.setText("Question No. 1 :");
             q.setText(" 1/2 + 5/7 = ");
             question.add(q);
@@ -66,6 +74,14 @@ class Qpage {
             options.add(op3);
             options.add(op4);
 
+
+            int t = 30;
+            while(t != 0){
+                timerem.setText("TIME REMAINING :"+t);
+                timePanel.add(timerem);
+                time.sleep(1);
+                t--;
+            }
             pg.add(questionNo);
             pg.add(question);
             pg.add(options);
