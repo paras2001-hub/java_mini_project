@@ -22,31 +22,32 @@ public class Questions {
 
         switch (randOperator) {
             case 1:
-                num = this.a * this.d + this.c * this.b;
-                deno = this.b * this.d;
-                this.correctAnswer = num + "/" + deno;
+                num = b == d ?  a + c : this.a * this.d + this.c * this.b;
+                deno = b == d ? b : this.b * this.d;
+                
+                this.correctAnswer = num == deno ? "1" : num + "/" + deno;
                 this.operator = "+";
                 break;
 
             case 2:
-                num = this.a * this.d - this.c * this.b;
-                deno = this.b * this.d;
-                this.correctAnswer = num + "/" + deno;
+                num = b == d ? a - c : this.a * this.d - this.c * this.b;
+                deno = b == d ? b : this.b * this.d;
+                this.correctAnswer = num == 0 ? "0" : (num == deno ? "1" : num + "/" + deno);
                 this.operator = "-";
                 break;
 
             case 3:
                 num = a * c;
                 deno = b * d;
-                this.correctAnswer = num + "/" + deno;
+                this.correctAnswer = num == deno ? "1" : num + "/" + deno;
                 this.operator = "*";
                 break;
 
             case 4:
                 num = a * d;
                 deno = c * b;
-                this.correctAnswer = num + "/" + deno;
-                this.operator = "/";
+                this.correctAnswer = num == deno ? "1" : num + "/" + deno;
+                this.operator = "÷";
                 break;
         }
         question = a + "/" + b + " " +  this.operator + " " + c + "/" + d;
