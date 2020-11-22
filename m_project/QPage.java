@@ -11,6 +11,7 @@ import javax.swing.JButton;
 class Qpage {
     public static void main(String args[]){
         // TimeUnit time = new TimeUnit.SECONDS();
+        
 
         JFrame pg = new JFrame();
         pg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,16 +59,18 @@ class Qpage {
         JPanel timePanel = new JPanel();
         timePanel.setBackground(Color.DARK_GRAY);
 
-        for(int i = 0 ; i<1 ; i++){
-            num.setText("Question No. 1 :");
-            q.setText(" 1/2 + 5/7 = ");
+        for(int i = 0 ; i < 10 ; i++){
+            Questions q_ = new Questions();
+            num.setText("Question No."+i);
+            q.setText(q_.getQuestion());
             question.add(q);
             questionNo.add(num);
+            ArrayList<String> oplst = q_.getChoices();
 
-            op1.setText("17/14");
-            op2.setText("13/14");
-            op3.setText("15/14");
-            op4.setText("19/14");
+            op1.setText(oplst[0]);
+            op2.setText(oplst[1]);
+            op3.setText(oplst[2]);
+            op4.setText(oplst[3]);
 
             options.add(op1);
             options.add(op2);
@@ -75,7 +78,7 @@ class Qpage {
             options.add(op4);
 
 
-            // int t = 30;
+            int t = 0;
             // while(t != 0){
             //     timerem.setText("TIME REMAINING :"+t);
             //     timePanel.add(timerem);
@@ -86,6 +89,9 @@ class Qpage {
             pg.add(question);
             pg.add(options);
             pg.add(timePanel);
+            while(t!= 10000){
+                t++;
+            }
         }
     }
 }
