@@ -1,4 +1,4 @@
-import java.util.concurrent.TimeUnit;
+
 import java.awt.GridLayout;
 import java.awt.Font;
 import java.awt.FlowLayout;
@@ -10,7 +10,7 @@ import javax.swing.JButton;
 
 class Qpage {
     public static void main(String args[]){
-        TimeUnit time = new TimeUnit.SECONDS();
+        // TimeUnit time = new TimeUnit.SECONDS();
 
         JFrame pg = new JFrame();
         pg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,13 +75,13 @@ class Qpage {
             options.add(op4);
 
 
-            int t = 30;
-            while(t != 0){
-                timerem.setText("TIME REMAINING :"+t);
-                timePanel.add(timerem);
-                time.sleep(1);
-                t--;
-            }
+            // int t = 30;
+            // while(t != 0){
+            //     timerem.setText("TIME REMAINING :"+t);
+            //     timePanel.add(timerem);
+            //     time.sleep(1);
+            //     t--;
+            // }
             pg.add(questionNo);
             pg.add(question);
             pg.add(options);
