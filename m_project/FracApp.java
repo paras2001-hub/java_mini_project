@@ -1,7 +1,9 @@
+
 import java.util.*;
 
 class FracApp{
-    static int ulC, olC,ulW, olW;
+    static int underLimitCorrect, overLimitCorrect,underLimitWrong, overLimitWrong;
+
     public static void main(String args[]) {
         Scanner s = new Scanner(System.in);
         int playagain = 1;
@@ -11,10 +13,10 @@ class FracApp{
 
         while (playagain == 1) {
 
-            ulC = 0;
-            olC = 0;
-            ulW = 0;
-            olW = 0;
+            underLimitCorrect = 0;
+            overLimitCorrect = 0;
+            underLimitWrong = 0;
+            overLimitWrong = 0;
 
             for (int i = 1; i <= 10; i++) {
 
@@ -22,8 +24,10 @@ class FracApp{
                 Qtimer qtimer = new Qtimer();
                 QandA mcq = new QandA();
                 qtimer.runTimer();
-
-                System.out.print("Q.No. " + i + " => ");
+                if(i != 1 ) {
+                    System.out.println();
+                }
+                System.out.print("\nQ.No. " + i + " => ");
                 System.out.println(mcq.getQuestion());
                 
                 ArrayList<String> options = mcq.getChoices();
@@ -46,25 +50,30 @@ class FracApp{
 
             System.out.println("\n============================\n");
             printScore();
-            System.out.println("\n============================\n");
-            System.out.println("Do you want to play again?(y/n)");
-            while (playagain == 2) {
-                char playAgain = s.next().charAt(0);
+            System.out.println("\n============================");
+            System.out.print("Do you want to play again (y/n) ? ");
+            
+            char playAgain = s.next().charAt(0);
+            while (playAgain != 'y' && playAgain != 'n') {
+                System.out.print("Invalid Entry! \n Enter ( y/n ) :"); 
+                playAgain = s.next().charAt(0);
+            } 
                 switch (playAgain) {
                 case 'Y' :
                 case 'y' :
                     playagain = 1;
                     break;
+                
                 case 'N' :
                 case 'n' :
                     playagain = 0;
                     break;
                 default : 
-                    System.out.println("Invalid Option!");
-                    playagain = 2;   
+                    break; 
             }
+        
         }
-        }
+        s.close();
     }
 
     static int checkans(QandA mcq, int answer, ArrayList<String> option){
@@ -99,24 +108,24 @@ class FracApp{
 
     static void printScore(){
         System.out.println("                       Under Time-Limit \t\t Over Time-Limit");
-        System.out.println("Correct Answers:\t\t"+ulC+"\t\t\t\t"+olC);
-        System.out.println("Wrong Answers:  \t\t"+ulW+"\t\t\t\t"+olW);
-        System.out.println("\nTOTAL POINTS: "+(ulC*10+olC*6+ulW*3+olW*0)+"  ("+ulC*10+"+"+olC*6+"+"+ulW*3+"+"+olW*0+")");
+        System.out.println("Correct Answers:\t\t"+underLimitCorrect+"\t\t\t\t"+overLimitCorrect);
+        System.out.println("Wrong Answers:  \t\t"+underLimitWrong+"\t\t\t\t"+overLimitWrong);
+        System.out.println("\nTOTAL POINTS: "+(underLimitCorrect*10+overLimitCorrect*6+underLimitWrong*3+overLimitWrong*0)+"  ("+underLimitCorrect*10+"+"+overLimitCorrect*6+"+"+underLimitWrong*3+"+"+overLimitWrong*0+")");
     }
     static void ans_state(int timerflag, int ansflag){
         switch(timerflag){
             case 0:
                 if(ansflag == 1){
-                    olC++;
+                    overLimitCorrect++;
                 }else{
-                    olW++;
+                    overLimitWrong++;
                 }
                 break;
             case 1:
                 if(ansflag == 1){
-                    ulC++;
+                    underLimitCorrect++;
                 }else{
-                    ulW++;
+                    underLimitWrong++;
                 }
                 break;
         }
