@@ -1,28 +1,35 @@
 import java.util.*;
 
 class FracApp{
-    public static void main(String args[]){
+    public static void main(String args[]) {
         Scanner s = new Scanner(System.in);
         int playagain = 1;
         int ulC, olC, ulW, olW;
         System.out.println("Enter time per question: ");
         int time = s.nextInt();
         System.out.println("\n\n========== RULES ==========\n\n");
-        
 
-        while(playagain==1){
-            for(int i = 1; i <= 10; i++){
+        while (playagain == 1) {
+            for (int i = 1; i <= 10; i++) {
+                int timerflag = 0;
+                Qtimer qtimer = new Qtimer();
                 QandA mcq = new QandA();
-                System.out.print("Q.No. "+i+" => ");
+                System.out.print("Q.No. " + i + " => ");
                 System.out.println(mcq.getQuestion());
+                qtimer.runTimer();
                 ArrayList<String> options = mcq.getChoices();
                 System.out.println("1)"+options.get(0));
                 System.out.println("2)"+options.get(1));
                 System.out.println("3)"+options.get(2));
                 System.out.println("4)"+options.get(3));
                 int answer = s.nextInt();
-                System.out.println(checkans(mcq, answer, options));
+                if(qtimer.getsec()<=time){
+                    timerflag = 1;
+                }
+                int ansflag = checkans(mcq, answer, options);
+                qtimer.endtimer();
             }
+
             System.out.println("\n============================\n");
             printScore();
             System.out.println("\n============================\n");
@@ -40,6 +47,7 @@ class FracApp{
                     playagain = 0;
                     break;
                 default : 
+                    System.out.println("Invalid Option!");
                     playagain = 2;
                     
             }
