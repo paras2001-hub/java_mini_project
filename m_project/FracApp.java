@@ -27,6 +27,23 @@ class FracApp{
             printScore();
             System.out.println("\n============================\n");
             System.out.println("Do you want to play again?(y/n)");
+            
+            while (playagain == 1 || playagain == 0) {
+                char playAgain = s.next().charAt(0);
+                switch (playAgain) {
+                case 'Y' :
+                case 'y' :
+                    playagain = 1;
+                    break;
+                case 'N' :
+                case 'n' :
+                    playagain = 0;
+                    break;
+                default : 
+                    playagain = 2;
+                    
+            }
+        }
         }
     }
 
