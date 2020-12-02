@@ -40,6 +40,8 @@ class FracApp{
                 int ansflag = checkans(mcq, answer, options);
 
                 qtimer.endtimer();
+
+                ans_state(timerflag, ansflag);
             }
 
             System.out.println("\n============================\n");
@@ -96,6 +98,27 @@ class FracApp{
     }
 
     static void printScore(){
-
+        System.out.println("                       Under Time-Limit \t\t Over Time-Limit");
+        System.out.println("Correct Answers:\t\t"+ulC+"\t\t\t\t"+olC);
+        System.out.println("Wrong Answers:  \t\t"+ulW+"\t\t\t\t"+olW);
+        System.out.println("\nTOTAL POINTS: "+(ulC*10+olC*6+ulW*3+olW*0)+"  ("+ulC*10+"+"+olC*6+"+"+ulW*3+"+"+olW*0+")");
+    }
+    static void ans_state(int timerflag, int ansflag){
+        switch(timerflag){
+            case 0:
+                if(ansflag == 1){
+                    olC++;
+                }else{
+                    olW++;
+                }
+                break;
+            case 1:
+                if(ansflag == 1){
+                    ulC++;
+                }else{
+                    ulW++;
+                }
+                break;
+        }
     }
 }
