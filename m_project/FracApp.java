@@ -4,6 +4,7 @@ class FracApp{
     public static void main(String args[]){
         Scanner s = new Scanner(System.in);
         int playagain = 1;
+        int ulC, olC, ulW, olW;
         System.out.println("Enter time per question: ");
         int time = s.nextInt();
         System.out.println("\n\n========== RULES ==========\n\n");
@@ -12,7 +13,7 @@ class FracApp{
         while(playagain==1){
             for(int i = 1; i <= 10; i++){
                 QandA mcq = new QandA();
-                System.out.println("Question No."+i);
+                System.out.print("Q.No. "+i+" => ");
                 System.out.println(mcq.getQuestion());
                 ArrayList<String> options = mcq.getChoices();
                 System.out.println("1)"+options.get(0));
@@ -21,10 +22,14 @@ class FracApp{
                 System.out.println("4)"+options.get(3));
                 int answer = s.nextInt();
                 System.out.println(checkans(mcq, answer, options));
-                System.out.println(mcq.getCorrectAnswer());
             }
+            System.out.println("\n============================\n");
+            printScore();
+            System.out.println("\n============================\n");
+            System.out.println("Do you want to play again?(y/n)");
         }
     }
+
     static int checkans(QandA mcq, int answer, ArrayList<String> option){
         int f = 0;
         String c_answer = mcq.getCorrectAnswer();
@@ -53,5 +58,9 @@ class FracApp{
             System.out.println("Invalid Option!");
         }
         return f;
+    }
+
+    static void printScore(){
+
     }
 }
