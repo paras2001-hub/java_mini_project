@@ -20,33 +20,32 @@ class FracApp{
                 System.out.println("3)"+options.get(2));
                 System.out.println("4)"+options.get(3));
                 int answer = s.nextInt();
-                System.out.println(checkans(mcq, answer));
+                System.out.println(checkans(mcq, answer, options));
                 System.out.println(mcq.getCorrectAnswer());
             }
         }
     }
-    static int checkans(QandA mcq, int answer){
+    static int checkans(QandA mcq, int answer, ArrayList<String> option){
         int f = 0;
         String c_answer = mcq.getCorrectAnswer();
-        ArrayList<String> options = mcq.getChoices();
         switch(answer){
             case 1:
-            if(c_answer.equals(options.get(0))){
+            if(c_answer.equals(option.get(0))){
                 f = 1;
             }
             break;
             case 2:
-            if(c_answer.equals(options.get(1))){
+            if(c_answer.equals(option.get(1))){
                 f = 1;
             }
             break;
             case 3:
-            if(c_answer.equals(options.get(2))){
+            if(c_answer.equals(option.get(2))){
                 f = 1;
             }
             break;
             case 4:
-            if(c_answer.equals(options.get(3))){
+            if(c_answer.equals(option.get(3))){
                 f = 1;
             }
             break;
