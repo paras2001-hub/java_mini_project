@@ -10,6 +10,16 @@ class FracApp{
         System.out.println("Enter time per question: ");
         int time = s.nextInt();
         System.out.println("\n\n========== RULES ==========\n\n");
+        System.out.println("1) Read the question carefully and type the option number below the options.");
+        System.out.println("2) Choosing invalid option will be considered as WRONG answer.");
+        System.out.println("3) You can enter time for each question at the start.");
+        System.out.println("4) Scoring System:");
+        System.out.println("     POINTS AWARDED FOR EACH QUESTION: ");
+        System.out.println("                       Under Time-Limit \t\t Over Time-Limit");
+        System.out.println("Correct Answers:\t\t10\t\t\t\t6");
+        System.out.println("Wrong Answers:  \t\t3\t\t\t\t0");
+        System.out.println("5) Score-sheet will be displayed at the end of each session.");
+
 
         while (playagain == 1) {
 
